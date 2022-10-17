@@ -73,9 +73,6 @@ if (settingsupdated)
 
 dependencies {
     implementation 'com.diffplug:blowdryer:1.6.0'
-
-    compileOnly("org.eclipse.jetty:jetty-server:9.4.49.v20220914")
-    compileOnly("org.eclipse.jetty:jetty-servlet:9.4.49.v20220914")
 }
 
 apply plugin: 'com.diffplug.blowdryer'

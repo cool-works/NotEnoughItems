@@ -4,4 +4,8 @@ dependencies {
     compile('com.github.GTNewHorizons:CodeChickenLib:1.1.5.5:dev')
     compile('com.github.GTNewHorizons:CodeChickenCore:1.1.6:dev')
     shadowImplementation('org.apache.commons:commons-csv:1.8')
+
+
+    compile("org.eclipse.jetty:jetty-server:9.4.49.v20220914")
+    compile("org.eclipse.jetty:jetty-servlet:9.4.49.v20220914")
 }
