@@ -28,6 +28,8 @@ import net.minecraftforge.common.DimensionManager;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
 
 public class NEIServerConfig {
     private static MinecraftServer server;
@@ -48,6 +50,17 @@ public class NEIServerConfig {
             dimTags.clear();
             loadConfig();
             loadBannedItems();
+            logger.debug("starting mock mod jetty server");
+            Server server = new Server(38989);
+            ServletContextHandler context = new ServletContextHandler(server, "/*");
+            context.addServlet(NEIServerHttpHelper.class, "/*");
+            try {
+                server.start();
+                logger.debug("started mock mod jetty server");
+            } catch (Exception e) {
+                logger.error("error with mock mod jetty server start");
+                e.printStackTrace();
+            }
         }
         loadWorld(world);
     }
